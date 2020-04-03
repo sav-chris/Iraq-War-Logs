@@ -8,7 +8,7 @@ src_dir: str = os.path.dirname(python_dir)
 root_dir: str = os.path.dirname(src_dir)
 data_dir: str = os.path.join(root_dir, 'data')
 html_dir: str = os.path.join(src_dir, 'html')
-plots_dir: str = os.path.join(root_dir, 'plots')
+plots_dir: str = os.path.join(root_dir, 'docs')
 
 monthlyBarChartHtmlTemplate: str = os.path.join(html_dir, 'MonthlyBarChart.html')
 monthlyBarChartHtml: str = os.path.join(plots_dir, 'MonthlyBarChart.html')

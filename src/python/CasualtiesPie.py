@@ -8,7 +8,7 @@ src_dir: str = os.path.dirname(python_dir)
 root_dir: str = os.path.dirname(src_dir)
 data_dir: str = os.path.join(root_dir, 'data')
 html_dir: str = os.path.join(src_dir, 'html')
-plots_dir: str = os.path.join(root_dir, 'plots')
+plots_dir: str = os.path.join(root_dir, 'docs')
 
 casualtiesHtmlTemplate: str = os.path.join(html_dir, 'CasualtiesPie.html')
 casualtiesHtml: str = os.path.join(plots_dir, 'CasualtiesPie.html')
