@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<head>
+<script>
+
+window.onload = function()
+{
+    fmt = "##0.00%";
+
+    var chart = new CanvasJS.Chart("KIAChartContainer",
+    {
+	    animationEnabled: true,
+	    title:
+	    {
+		    text: "KIA Breakdown"
+	    },
+	    data:
+	    [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints:
+		    [
+			    {y: {{ CivilianKIA }}, label: "Civilian KIA"},
+		        {y: {{ FriendlyKIA }}, label: "Friendly KIA"},
+		        {y: {{ HostNationKIA }}, label: "Host Nation KIA"},
+		        {y: {{ EnemyKIA }}, label: "Enemy KIA"}
+		    ]
+	    }]
+    });
+    chart.render();
+}
+
+</script>
+</head>
+<body>
+    <div id="KIAChartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+</html>

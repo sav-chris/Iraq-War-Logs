@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['table']});
+                google.charts.setOnLoadCallback(drawTable);
+
+                function drawTable() {
+                    var data = new google.visualization.DataTable();
+
+                    data.addColumn('string', 'type');
+                    data.addColumn('string', 'category');
+                    data.addColumn('string', 'affiliation');
+                    data.addColumn('string', 'AttackOn');
+                    data.addColumn('number', 'civiliankia');
+                    data.addColumn('number', 'friendlykia');
+                    data.addColumn('number', 'hostnationkia');
+                    data.addColumn('number', 'enemykia');
+                    data.addColumn('number', 'Total');
+
+                    data.addRows([
+                        [ 'Criminal Event', 'Murder', 'ENEMY', 'ENEMY', 32563, 9, 2169, 73, 34814 ]   ,
+                        [ 'Explosive Hazard', 'IED Explosion', 'ENEMY', 'ENEMY', 20228, 2107, 5990, 3455, 31780 ]   ,
+                        [ 'Enemy Action', 'Direct Fire', 'ENEMY', 'ENEMY', 4766, 482, 4270, 6803, 16321 ]   ,
+                        [ 'Enemy Action', 'Indirect Fire', 'ENEMY', 'ENEMY', 2087, 192, 284, 1040, 3603 ]   ,
+                        [ 'Enemy Action', 'Attack', 'ENEMY', 'ENEMY', 1448, 32, 1130, 1456, 4066 ]   ,
+                        [ 'Friendly Action', 'Escalation of Force', 'FRIEND', 'FRIEND', 686, 0, 22, 70, 778 ]   ,
+                        [ 'Non-Combat Event', 'Accident', 'NEUTRAL', 'NEUTRAL', 599, 428, 256, 22, 1305 ]   ,
+                        [ 'Non-Combat Event', 'Demonstration', 'NEUTRAL', 'NEUTRAL', 476, 1, 16, 2, 495 ]   ,
+                        [ 'Other', 'Staff Estimate', 'NEUTRAL', 'NEUTRAL', 380, 0, 2, 0, 382 ]   ,
+                        [ 'Explosive Hazard', 'Unknown Explosion', 'ENEMY', 'ENEMY', 284, 4, 24, 61, 373 ]   ,
+                        [ 'Threat Report', 'Other', 'ENEMY', 'ENEMY', 250, 0, 0, 0, 250 ]   ,
+                        [ 'Enemy Action', 'Assassination', 'ENEMY', 'ENEMY', 246, 0, 183, 7, 436 ]   ,
+                        [ 'Friendly Action', 'Attack', 'FRIEND', 'FRIEND', 179, 54, 37, 2319, 2589 ]   ,
+                        [ 'Criminal Event', 'Kidnapping', 'ENEMY', 'ENEMY', 161, 0, 67, 18, 246 ]   ,
+                        [ 'Friendly Action', 'Other Defensive', 'FRIEND', 'FRIEND', 141, 2, 5, 116, 264 ]   ,
+                        [ 'Non-Combat Event', 'Tribal Feud', 'NEUTRAL', 'NEUTRAL', 138, 0, 14, 5, 157 ]   ,
+                        [ 'Criminal Event', 'Arson', 'ENEMY', 'ENEMY', 114, 0, 6, 6, 126 ]   ,
+                        [ 'Non-Combat Event', 'Other', 'NEUTRAL', 'NEUTRAL', 94, 148, 29, 10, 281 ]   ,
+                        [ 'Explosive Hazard', 'IED Found/Cleared', 'ENEMY', 'ENEMY', 90, 6, 31, 579, 706 ]   ,
+                        [ 'Friendly Action', 'Raid', 'FRIEND', 'FRIEND', 85, 12, 75, 618, 790 ]   ,
+                        [ 'Friendly Action', 'Other', 'FRIEND', 'FRIEND', 85, 16, 6, 301, 408 ]   ,
+                        [ 'Enemy Action', 'Ambush', 'ENEMY', 'ENEMY', 81, 4, 93, 112, 290 ]   ,
+                        [ 'Other', 'Other', 'NEUTRAL', 'NEUTRAL', 66, 27, 12, 35, 140 ]   ,
+                        [ 'Friendly Action', 'Small Unit Actions', 'FRIEND', 'FRIEND', 65, 27, 13, 3129, 3234 ]   ,
+                        [ 'Friendly Fire', 'Blue-White', 'FRIEND', 'FRIEND', 62, 0, 0, 1, 63 ]   ,
+                        [ 'Criminal Event', 'Theft', 'ENEMY', 'ENEMY', 57, 0, 8, 14, 79 ]   ,
+                        [ 'Enemy Action', 'Sniper Ops', 'ENEMY', 'ENEMY', 55, 86, 173, 31, 345 ]   ,
+                        [ 'Friendly Fire', 'Green-White', 'FRIEND', 'FRIEND', 48, 0, 2, 0, 50 ]   ,
+                        [ 'Friendly Action', 'Cordon/Search', 'FRIEND', 'FRIEND', 47, 2, 43, 316, 408 ]   ,
+                        [ 'Friendly Action', 'Patrol', 'FRIEND', 'FRIEND', 43, 0, 3, 61, 107 ]   ,
+                        [ 'Explosive Hazard', 'Other', 'ENEMY', 'ENEMY', 41, 0, 2, 64, 107 ]   ,
+                        [ 'Explosive Hazard', 'Mine Strike', 'ENEMY', 'ENEMY', 30, 37, 24, 6, 97 ]   ,
+                        [ 'Friendly Action', 'Cache Found/Cleared', 'FRIEND', 'FRIEND', 28, 2, 10, 236, 276 ]   ,
+                        [ 'Criminal Event', 'Carjacking', 'ENEMY', 'ENEMY', 27, 0, 5, 5, 37 ]   ,
+                        [ 'Criminal Event', 'Other', 'ENEMY', 'ENEMY', 24, 2, 19, 15, 60 ]   ,
+                        [ 'Suspicious Incident', 'Other', 'ENEMY', 'ENEMY', 24, 1, 4, 12, 41 ]   ,
+                        [ 'Enemy Action', 'SAFIRE', 'ENEMY', 'ENEMY', 22, 67, 4, 317, 410 ]   ,
+                        [ 'Friendly Action', 'Arrest', 'FRIEND', 'FRIEND', 20, 0, 12, 56, 88 ]   ,
+                        [ 'Friendly Fire', 'White-White', 'FRIEND', 'FRIEND', 20, 0, 0, 0, 20 ]   ,
+                        [ 'Friendly Action', 'Detain', 'FRIEND', 'FRIEND', 19, 0, 2, 87, 108 ]   ,
+                        [ 'Friendly Action', 'Other Offensive', 'FRIEND', 'FRIEND', 18, 0, 4, 639, 661 ]   ,
+                        [ 'Criminal Event', 'Looting', 'ENEMY', 'ENEMY', 18, 0, 0, 3, 21 ]   ,
+                        [ 'Threat Report', 'Intimidation Threat', 'ENEMY', 'ENEMY', 18, 0, 6, 1, 25 ]   ,
+                        [ 'Friendly Fire', 'Green-Green', 'FRIEND', 'FRIEND', 17, 0, 58, 2, 77 ]   ,
+                        [ 'Explosive Hazard', 'Unexploded Ordnance', 'ENEMY', 'ENEMY', 15, 0, 2, 3, 20 ]   ,
+                        [ 'Friendly Action', 'Police Actions', 'FRIEND', 'FRIEND', 14, 0, 1, 32, 47 ]   ,
+                        [ 'Criminal Event', 'Shooting', 'ENEMY', 'ENEMY', 8, 0, 1, 0, 9 ]   ,
+                        [ 'Friendly Action', 'Sniper Ops', 'FRIEND', 'FRIEND', 7, 0, 0, 333, 340 ]   ,
+                        [ 'Criminal Event', 'Sabotage', 'ENEMY', 'ENEMY', 6, 0, 2, 0, 8 ]   ,
+                        [ 'Friendly Action', 'Surveillance', 'FRIEND', 'FRIEND', 6, 0, 1, 59, 66 ]   ,
+                        [ 'Friendly Action', 'Medevac', 'FRIEND', 'FRIEND', 5, 3, 1, 2, 11 ]   ,
+                        [ 'Criminal Event', 'Smuggling', 'ENEMY', 'ENEMY', 5, 0, 1, 2, 8 ]   ,
+                        [ 'Friendly Fire', 'White-Blue', 'FRIEND', 'FRIEND', 5, 0, 0, 0, 5 ]   ,
+                        [ 'Friendly Action', 'TCP', 'FRIEND', 'FRIEND', 5, 0, 0, 25, 30 ]   ,
+                        [ 'Friendly Action', 'Close Air Support', 'FRIEND', 'FRIEND', 5, 0, 0, 776, 781 ]   ,
+                        [ 'Friendly Action', 'Vehicle Interdiction', 'FRIEND', 'FRIEND', 4, 0, 0, 29, 33 ]   ,
+                        [ 'Friendly Action', 'Ambush', 'FRIEND', 'FRIEND', 4, 0, 0, 42, 46 ]   ,
+                        [ 'Friendly Fire', 'Blue-Green', 'FRIEND', 'FRIEND', 4, 0, 51, 0, 55 ]   ,
+                        [ 'Friendly Action', 'Confiscation', 'FRIEND', 'FRIEND', 3, 0, 0, 57, 60 ]   ,
+                        [ 'Non-Combat Event', 'Equipment Failure', 'NEUTRAL', 'NEUTRAL', 3, 4, 2, 0, 9 ]   ,
+                        [ 'Explosive Hazard', 'IED Pre-detonation', 'ENEMY', 'ENEMY', 3, 0, 0, 50, 53 ]   ,
+                        [ 'Friendly Action', 'UAV', 'FRIEND', 'FRIEND', 3, 0, 0, 49, 52 ]   ,
+                        [ 'Explosive Hazard', 'IED False', 'ENEMY', 'ENEMY', 3, 0, 0, 0, 3 ]   ,
+                        [ 'Friendly Fire', 'Green-Blue', 'FRIEND', 'FRIEND', 3, 5, 14, 0, 22 ]   ,
+                        [ 'Friendly Fire', 'Blue-Blue', 'FRIEND', 'FRIEND', 3, 9, 2, 4, 18 ]   ,
+                        [ 'Suspicious Incident', 'Surveillance', 'ENEMY', 'ENEMY', 2, 0, 0, 2, 4 ]   ,
+                        [ 'Explosive Hazard', 'Mine Found/Cleared', 'ENEMY', 'ENEMY', 2, 0, 0, 1, 3 ]   ,
+                        [ 'Explosive Hazard', 'IED Hoax', 'ENEMY', 'ENEMY', 2, 1, 0, 1, 4 ]   ,
+                        [ 'Threat Report', 'Kidnapping Threat', 'ENEMY', 'ENEMY', 2, 0, 0, 0, 2 ]   ,
+                        [ 'Friendly Action', 'ARTY', 'FRIEND', 'FRIEND', 2, 0, 0, 41, 43 ]   ,
+                        [ 'Friendly Action', 'Breaching', 'FRIEND', 'FRIEND', 1, 0, 0, 0, 1 ]   ,
+                        [ 'Threat Report', 'Attack Threat', 'ENEMY', 'ENEMY', 1, 0, 0, 1, 2 ]   ,
+                        [ 'Threat Report', 'Direct Fire Threat', 'ENEMY', 'ENEMY', 1, 0, 0, 0, 1 ]   ,
+                        [ 'Threat Report', 'Murder Threat', 'ENEMY', 'ENEMY', 1, 0, 0, 0, 1 ]   ,
+                        [ 'Threat Report', 'SAFIRE Threat', 'ENEMY', 'ENEMY', 1, 0, 0, 0, 1 ]   ,
+                        [ 'Explosive Hazard', 'Explosive Remnants of War (ERW)/Turn In', 'ENEMY', 'ENEMY', 1, 0, 0, 0, 1 ]   ,
+                        [ 'Enemy Action', 'Raid', 'ENEMY', 'ENEMY', 1, 0, 0, 1, 2 ]   ,
+                        [ 'Friendly Action', 'Explosive Remnants of War (ERW) Found/Cleared', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Explosive Remnants of War (ERW)/Turn In', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Other', 'Rock Throwing', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Explosive Hazard', 'IED Suspected', 'ENEMY', 'ENEMY', 0, 0, 0, 37, 37 ]   ,
+                        [ 'Non-Combat Event', 'Propaganda', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Suspicious Incident', 'Tests of Security', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Other', 'Lasing', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Search and Attack', 'FRIEND', 'FRIEND', 0, 0, 0, 90, 90 ]   ,
+                        [ 'Explosive Hazard', 'Explosive Remnants of War (ERW) Found/Cleared', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Recon', 'FRIEND', 'FRIEND', 0, 0, 0, 13, 13 ]   ,
+                        [ 'Friendly Action', 'Lasing', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Non-Combat Event', 'Supporting AIF', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Non-Combat Event', 'Sermon', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Border Ops', 'FRIEND', 'FRIEND', 0, 0, 0, 2, 2 ]   ,
+                        [ 'Non-Combat Event', 'Meeting', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Convoy', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'None Selected', 'None Selected', 'UNKNOWN', 'UNKNOWN', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Non-Combat Event', '<null value>', 'NEUTRAL', 'NEUTRAL', 0, 0, 1, 0, 1 ]   ,
+                        [ 'Suspicious Incident', '<null value>', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Direct Fire', 'FRIEND', 'FRIEND', 0, 0, 0, 4, 4 ]   ,
+                        [ 'Friendly Action', 'Movement to Contact', 'FRIEND', 'FRIEND', 0, 1, 0, 77, 78 ]   ,
+                        [ 'Friendly Action', 'Deliberate Attack', 'FRIEND', 'FRIEND', 0, 0, 3, 119, 122 ]   ,
+                        [ 'Suspicious Incident', 'Repetitive Activities', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Non-Combat Event', 'Supporting CF', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Counter Mortar Fire', 'FRIEND', 'FRIEND', 0, 0, 0, 24, 24 ]   ,
+                        [ 'Threat Report', 'IED Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 2, 2 ]   ,
+                        [ 'Friendly Action', 'Counter Mortar Patrol', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Action', 'Detention', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Indirect Fire Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 2, 2 ]   ,
+                        [ 'Criminal Event', 'Hijacking', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Smuggling Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Indirect Fire', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Intimidation', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Ambush Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Theft Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Assassination Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Sniper Ops Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Sabotage Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Carjacking Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Small Arms Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Looting Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Raid Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Direct Fire', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Threat Report', 'Recon Threat', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Friendly Fire', 'White-Green', 'FRIEND', 'FRIEND', 0, 0, 0, 1, 1 ]   ,
+                        [ 'Non-Combat Event', 'Natural Disaster', 'NEUTRAL', 'NEUTRAL', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Criminal Event', 'Extortion', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Criminal Event', 'Mugging', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Suspicious Incident', 'Elicitation', 'ENEMY', 'ENEMY', 0, 0, 1, 0, 1 ]   ,
+                        [ 'Friendly Action', '<null value>', 'FRIEND', 'FRIEND', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Explosive Hazard', '<null value>', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Enemy Action', '<null value>', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Enemy Action', 'Patrol', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   ,
+                        [ 'Enemy Action', 'Surveillance', 'ENEMY', 'ENEMY', 0, 0, 0, 0, 0 ]   
+
+                    ]);
+
+                    var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                    table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                }
+            </script>
+        </head>
+    <body>
+        <div id="table_div"></div>
+    </body>
+</html>

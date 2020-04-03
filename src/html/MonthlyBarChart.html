@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js" language="JavaScript"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js" language="JavaScript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+    <title>Monthly Casualties</title>
+</head>
+<body>
+    <div style="width:100%;">
+        <canvas id="canvasMonthlyBar"></canvas>
+        <canvas id="canvasMonthlyLine"></canvas>
+        <canvas id="canvasMonthlyKIA"></canvas>
+        <canvas id="canvasMonthlyWIA"></canvas>
+        <canvas id="canvasMonthlyCaptured"></canvas>
+    </div>
+<script>
+        var dateFormat = 'MMM YYYY';
+        var isStacked = true;
+        var configBar =
+        {
+            type: 'bar',
+            data:
+            {
+                labels:
+                [
+                    {%- for theYear, theMonth in theDate %}
+                    new Date({{ theYear }}, {{theMonth}}, 0, 0, 0, 0, 0) {% if not loop.last %},{% endif %}
+                    {%- endfor %}
+                ],
+                datasets:
+                [{
+                    label: "Friendly WIA",
+                    backgroundColor: window.chartColors.purple,
+                    borderColor: window.chartColors.purple,
+                    data:
+                    [
+                        {%- for item in friendlyWia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Friendly KIA",
+                    backgroundColor: window.chartColors.blue,
+                    borderColor: window.chartColors.blue,
+                    data:
+                    [
+                        {%- for item in friendlyKia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Host Nation WIA",
+                    backgroundColor: '#00FF00',
+                    borderColor: '#00FF00',
+                    data:
+                    [
+                        {%- for item in hostNationWia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Host Nation KIA",
+                    backgroundColor: window.chartColors.green,
+                    borderColor: window.chartColors.green,
+                    data:
+                    [
+                        {%- for item in hostNationKia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Civilian WIA",
+                    backgroundColor: window.chartColors.yellow,
+                    borderColor: window.chartColors.yellow,
+                    data:
+                    [
+                        {%- for item in civilianWia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Civilian KIA",
+                    backgroundColor: window.chartColors.orange,
+                    borderColor: window.chartColors.orange,
+                    data:
+                    [
+                        {%- for item in civilianKia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Enemy WIA",
+                    backgroundColor: '#FF69B4' ,
+                    borderColor: '#FF69B4',
+                    data:
+                    [
+                        {%- for item in enemyWia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }, {
+                    label: "Enemy KIA",
+                    backgroundColor: '#800000',
+                    borderColor: '#800000',
+                    data:
+                    [
+                        {%- for item in enemyKia %}
+                        {{ item }}{% if not loop.last %},{% endif %}
+                        {%- endfor %}
+                    ],
+                    fill: false,
+                }]
+            },
+            options:
+            {
+                responsive: true,
+                title:{
+                    display:true,
+                    text:'Monthly Casualties'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                   xAxes: [{
+						type: "time",
+						stacked: isStacked,
+						time: {
+						    displayFormats: {
+                                'millisecond': 'MMM YYYY',
+                                'second': 'MMM YYYY',
+                                'minute': 'MMM YYYY',
+                                'hour': 'MMM YYYY',
+                                'day': 'MMM YYYY',
+                                'week': 'MMM YYYY',
+                                'month': 'MMM YYYY',
+                                'quarter': 'MMM YYYY',
+                                'year': 'MMM YYYY',
+                            },
+							//format: dateFormat,
+							// round: 'month'
+							tooltipFormat: 'MMM YYYY',
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}, ],
+                    yAxes: [{
+                        display: true,
+                        stacked: isStacked,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Total'
+                        }
+                    }]
+                }
+            }
+        };
+
+        var lineConfig = Object.assign({}, configBar);
+        lineConfig.type = 'line';
+
+        // KIA
+        var canvasMonthlyKIAConfig = jQuery.extend(true, {}, configBar);
+        canvasMonthlyKIAConfig.data.datasets.splice(0, 1);
+        canvasMonthlyKIAConfig.data.datasets.splice(1, 1);
+        canvasMonthlyKIAConfig.data.datasets.splice(2, 1);
+        canvasMonthlyKIAConfig.data.datasets.splice(3, 1);
+        canvasMonthlyKIAConfig.options.title.text = 'Killed In Action';
+
+        // WIA
+        var canvasMonthlyWIAConfig = jQuery.extend(true, {}, configBar);
+        canvasMonthlyWIAConfig.data.datasets.splice(1, 1);
+        canvasMonthlyWIAConfig.data.datasets.splice(2, 1);
+        canvasMonthlyWIAConfig.data.datasets.splice(3, 1);
+        canvasMonthlyWIAConfig.data.datasets.splice(4, 1);
+        canvasMonthlyWIAConfig.options.title.text = 'Wounded In Action';
+
+        //Captured
+        var canvasMonthlyCapturedConfig = jQuery.extend(true, {}, configBar);
+        //canvasMonthlyCapturedConfig.type = 'line';
+        canvasMonthlyCapturedConfig.options.title.text = 'Captured';
+        canvasMonthlyCapturedConfig.data.datasets.push(
+        {
+            label: "Captured",
+            backgroundColor: '#778899',
+            borderColor: '#778899',
+            data:
+            [
+                {%- for item in enemyDetained %}
+                {{ item }}{% if not loop.last %},{% endif %}
+                {%- endfor %}
+            ],
+            fill: false,
+        });
+
+        window.onload = function() {
+            var ctx = document.getElementById("canvasMonthlyBar").getContext("2d");
+            window.myLine = new Chart(ctx, configBar);
+
+            //var lineCtx = document.getElementById("canvasMonthlyLine").getContext("2d");
+            //window.myBar = new Chart(lineCtx, lineConfig);
+
+            var kiaCtx = document.getElementById("canvasMonthlyKIA").getContext("2d");
+            window.kia = new Chart(kiaCtx, canvasMonthlyKIAConfig);
+
+            var wiaCtx = document.getElementById("canvasMonthlyWIA").getContext("2d");
+            window.wia = new Chart(wiaCtx, canvasMonthlyWIAConfig);
+
+            var capturedCtx = document.getElementById("canvasMonthlyCaptured").getContext("2d");
+            window.captured = new Chart(capturedCtx, canvasMonthlyCapturedConfig);
+
+        };
+
+    </script>
+</body>
+</html>
+

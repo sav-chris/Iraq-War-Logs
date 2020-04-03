@@ -1,0 +1,40 @@
+
+create table events (
+    id int,
+    url VARCHAR(100),
+    reportkey VARCHAR(100),
+    date VARCHAR(100),
+    type VARCHAR(100),
+    category VARCHAR(100),
+    trackingnumber VARCHAR(100),
+    title TEXT,
+    summary TEXT,
+    region VARCHAR(100),
+    attackon VARCHAR(100),
+    complexattack VARCHAR(100),
+    reportingunit VARCHAR(100),
+    unitname VARCHAR(100),
+    typeofunit VARCHAR(100),
+    friendlywia int,
+    friendlykia int,
+    hostnationwia int,
+    hostnationkia int,
+    civilianwia int,
+    civiliankia int,
+    enemywia int,
+    enemykia int,
+    enemydetained int,
+    mgrs VARCHAR(100),
+    latitude VARCHAR(100),
+    longitude VARCHAR(100),
+    originatorgroup VARCHAR(100),
+    updatedbygroup VARCHAR(100),
+    ccir TEXT,
+    sigact VARCHAR(100),
+    affiliation VARCHAR(100),
+    dcolor VARCHAR(100),
+    classification VARCHAR(100)
+);
+
+
+

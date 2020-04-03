@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<head>
+<script>
+
+window.onload = function()
+{
+    fmt = "##0.00%";
+
+    var chart = new CanvasJS.Chart("KIAChartContainer",
+    {
+	    animationEnabled: true,
+	    title:
+	    {
+		    text: "KIA Breakdown"
+	    },
+	    data:
+	    [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints:
+		    [
+			    {y: 0.6060697776799471714725952014, label: "Civilian KIA"},
+		        {y: 0.03458617653532907770195905789, label: "Friendly KIA"},
+		        {y: 0.1393719275075207278597109106, label: "Host Nation KIA"},
+		        {y: 0.2199721182772030229657348301, label: "Enemy KIA"}
+		    ]
+	    }]
+    });
+    chart.render();
+}
+
+</script>
+</head>
+<body>
+    <div id="KIAChartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+</html>

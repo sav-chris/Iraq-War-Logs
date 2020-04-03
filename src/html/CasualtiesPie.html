@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<head>
+<script>
+
+window.onload = function() {
+    fmt = "##0.00%";
+
+    var chart = new CanvasJS.Chart("civilianChartContainer", {
+	    animationEnabled: true,
+	    title: {
+		    text: "Civilian Deaths as Percentage of Total Civilian Casualties"
+	    },
+	    data: [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints: [
+			    {y: {{ Civilian }}, label: "Civilian KIA"},
+		        {y: 1 - {{ Civilian }}, label: "Civilian Wounded"}
+		    ]
+	    }]
+    });
+    chart.render();
+
+    var chart = new CanvasJS.Chart("friendlyChartContainer", {
+	    animationEnabled: true,
+	    title: {
+		    text: "Friendly Deaths as Percentage of Total Friendly Casualties"
+	    },
+	    data: [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints: [
+			    {y: {{ Friendly }}, label: "Friendly KIA"},
+		        {y: 1 - {{ Friendly }}, label: "Friendly Wounded"}
+		    ]
+	    }]
+    });
+    chart.render();
+
+    var chart = new CanvasJS.Chart("hostNationChartContainer", {
+	    animationEnabled: true,
+	    title: {
+		    text: "Host Nation Deaths as Percentage of Total Host Nation Casualties"
+	    },
+	    data: [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints: [
+			    {y: {{ HostNation }}, label: "Host Nation KIA"},
+		        {y: 1 - {{ HostNation }}, label: "Host Nation Wounded"}
+		    ]
+	    }]
+    });
+    chart.render();
+
+    var chart = new CanvasJS.Chart("enemyChartContainer", {
+	    animationEnabled: true,
+	    title: {
+		    text: "Enemy Deaths as Percentage of Total Enemy Casualties"
+	    },
+	    data: [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints: [
+			    {y: {{ Enemy }}, label: "Enemy KIA"},
+		        {y: 1 - {{ Enemy }}, label: "Enemy Wounded"}
+		    ]
+	    }]
+    });
+    chart.render();
+}
+</script>
+</head>
+<body>
+    <div id="civilianChartContainer" style="height: 370px; width: 100%;"></div>
+    <div id="friendlyChartContainer" style="height: 370px; width: 100%;"></div>
+    <div id="hostNationChartContainer" style="height: 370px; width: 100%;"></div>
+    <div id="enemyChartContainer" style="height: 370px; width: 100%;"></div>
+</body>
+</html>
