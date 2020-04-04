@@ -1,28 +1,41 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Hank Quinlan, Horrible Cop</title>
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Hank Quinlan!</h1>
-				<p>I'm best known as the horrible cop from <em>A Touch of Evil</em> Don't trust me. <a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        		<li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-			</ul>
-		</footer>
-	</body>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<head>
+<script>
+
+window.onload = function()
+{
+    fmt = "##0.00%";
+
+    var chart = new CanvasJS.Chart("KIAChartContainer",
+    {
+	    animationEnabled: true,
+	    title:
+	    {
+		    text: "KIA Breakdown"
+	    },
+	    data:
+	    [{
+		    type: "pie",
+		    startAngle: 240,
+		    yValueFormatString: fmt,
+		    indexLabel: "{label} {y}",
+		    dataPoints:
+		    [
+			    {y: 0.6060697776799471714725952014, label: "Civilian KIA"},
+		        {y: 0.03458617653532907770195905789, label: "Friendly KIA"},
+		        {y: 0.1393719275075207278597109106, label: "Host Nation KIA"},
+		        {y: 0.2199721182772030229657348301, label: "Enemy KIA"}
+		    ]
+	    }]
+    });
+    chart.render();
+}
+
+</script>
+</head>
+<body>
+    <div id="KIAChartContainer" style="height: 370px; width: 100%;"></div>
+</body>
 </html>
